@@ -221,7 +221,9 @@ const ResultsPage = () => {
                 {analysis.role_match.map((match, index) => {
                   // Safely convert string "85%" or number 85 to a clean number
                   const percentage = parseInt(
-                    match.weight.toString().replace("%", ""),
+                    match?.weight?.match?.match_percentage
+                      ?.toString()
+                      .replace("%", ""),
                   );
                   return (
                     <div key={index}>
